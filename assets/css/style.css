@@ -161,29 +161,46 @@ body {
   justify-content: space-between;
 }
 .result-section .results {
-  border: 1px solid #000;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 20px;
+  gap: 20px;
 }
 .result-section .results__tip-amount, .result-section .results__total-amount {
   font-size: 0.75em;
   color: hsl(189, 41%, 97%);
 }
-.result-section .results__tip-person {
+.result-section .results__tip-person, .result-section .results__total-person {
   font-size: 0.65em;
   color: hsl(186, 14%, 43%);
 }
-.result-section .results__tip-values {
+.result-section .results__tip-value, .result-section .results__total-value {
   font-size: 1.2em;
   color: hsl(172, 67%, 45%);
   text-align: right;
 }
+.result-section__button {
+  background-color: hsl(172, 67%, 45%);
+  height: 45px;
+  color: hsl(183, 100%, 15%);
+  border: none;
+  text-transform: uppercase;
+  font-size: 1em;
+  font-family: "space-mono", monospace;
+  border-radius: 4px;
+}
+.result-section__button:hover {
+  cursor: pointer;
+  background-color: hsl(185, 41%, 84%);
+}
+
 .attribution {
   font-size: 10px;
   text-align: center;
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=style.css.map */

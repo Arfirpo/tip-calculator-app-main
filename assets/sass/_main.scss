@@ -63,9 +63,10 @@
     flex-direction: column;
     justify-content: space-between;
     .results{
-        border: 1px solid #000;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 20px;
+        gap: 20px;
         &__tip-amount{
             font-size: 0.75em;
             color: vars.$veryLightGrayishCyan;
@@ -74,7 +75,7 @@
             font-size: 0.65em;
             color: vars.$darkGrayishCyan;
         }
-        &__tip-values{
+        &__tip-value{
             font-size: 1.2em;
             color: vars.$strongCyan;
             text-align: right;
@@ -82,7 +83,25 @@
         &__total-amount{
             @extend .results__tip-amount;
         }
-        // &.results__total-person{
-        //     @extend .results__tip-person;
+        &__total-person{
+            @extend .results__tip-person;
         }
+        &__total-value{
+            @extend .results__tip-value;
+        }
+    }
+    &__button{
+        background-color: vars.$strongCyan;
+        height: 45px;
+        color: vars.$veryDarkCyan;
+        border: none;
+        text-transform: uppercase;
+        font-size: 1em;
+        font-family: 'space-mono', monospace;
+        border-radius: 4px;
+        &:hover{
+            cursor: pointer;
+            background-color: vars.$lightGrayishCyan;
+        }
+    }
 }
