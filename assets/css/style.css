@@ -26,6 +26,12 @@ body {
   height: 54px;
   margin: 30px 0;
 }
+@media (min-width: 1400px) {
+  .header-container {
+    width: 900px;
+    margin: 120px auto 30px;
+  }
+}
 
 .calculator-container {
   background-color: hsl(0, 0%, 100%);
@@ -33,6 +39,17 @@ body {
   border-radius: 16px;
   padding: 32px;
   margin: 0 auto;
+}
+@media (min-width: 1400px) {
+  .calculator-container {
+    display: flex;
+    width: 900px;
+    gap: 50px;
+  }
+  .calculator-container .inputs-section,
+  .calculator-container .result-section {
+    flex: 1;
+  }
 }
 
 .inputs-section__bill-label,
@@ -151,6 +168,14 @@ body {
 .buttons__custom::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
+@media (min-width: 1400px) {
+  .buttons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .buttons__button {
+    width: 120px;
+  }
+}
 
 .result-section {
   background-color: hsl(183, 100%, 15%);
@@ -193,14 +218,28 @@ body {
   cursor: pointer;
   background-color: hsl(185, 41%, 84%);
 }
+@media (min-width: 1400px) {
+  .result-section .results__tip-value, .result-section .results__total-value {
+    font-size: 2em;
+  }
+  .result-section .results__total-value {
+    font-size: 2em;
+  }
+}
 
 .attribution {
-  font-size: 10px;
+  font-size: 0.42em;
   text-align: center;
+  margin-top: 10px;
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
   text-decoration: none;
+}
+@media (min-width: 1400px) {
+  .attribution {
+    font-size: 0.7em;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

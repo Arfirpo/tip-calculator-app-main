@@ -7,6 +7,15 @@
     border-radius: 16px;
     padding: 32px;
     margin: 0 auto;
+    @media (min-width:1400px) {
+        display: flex;
+        width: 900px;
+        gap: 50px;
+        .inputs-section,
+        .result-section{
+            flex: 1;
+        }
+    }
 }
 
 .inputs-section__bill-label,
@@ -47,6 +56,12 @@
         @include mixins.input(unset);
         text-align: center;
         color: vars.$darkGrayishCyan;
+    }
+    @media (min-width:1400px) {
+        grid-template-columns: repeat(3, 1fr);
+        &__button{
+            width: 120px;
+        }
     }
 }
 
@@ -102,6 +117,14 @@
         &:hover{
             cursor: pointer;
             background-color: vars.$lightGrayishCyan;
+        }
+    }
+    @media (min-width:1400px) {
+        .results__tip-value{
+            font-size: 2em;
+        }
+        .results__total-value{
+            font-size: 2em;
         }
     }
 }
