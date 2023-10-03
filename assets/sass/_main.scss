@@ -1,0 +1,88 @@
+@use 'vars';
+@use 'mixins';
+
+.calculator-container{
+    background-color: vars.$white;
+    width: 375px;
+    border-radius: 16px;
+    padding: 32px;
+    margin: 0 auto;
+}
+
+.inputs-section__bill-label,
+.inputs-section__people-label{
+    @include mixins.label;
+}
+
+.inputs-section__bill-input{
+    @include mixins.input('../images/icon-dollar.svg');
+}
+.inputs-section__people-input{
+    @include mixins.input('../images/icon-person.svg');
+}
+
+.buttons{
+    border: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+    &__legend{
+        @include mixins.label;
+    }
+    &__button{
+        border: none;
+        font-family: 'space-mono', monospace;
+        width: 147px;
+        height: 50px;
+        background-color: vars.$veryDarkCyan;
+        color: vars.$veryLightGrayishCyan;
+        font-size: 1em;
+        border-radius: 4px;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    &__custom{
+        @include mixins.input(unset);
+        text-align: center;
+        color: vars.$darkGrayishCyan;
+    }
+}
+
+// .error{
+//     border: 1px solid;
+//     border-color: rgb(164, 68, 68);
+// }
+
+.result-section{
+    background-color: vars.$veryDarkCyan;
+    border-radius: 12px;
+    padding: 42px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .results{
+        border: 1px solid #000;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        &__tip-amount{
+            font-size: 0.75em;
+            color: vars.$veryLightGrayishCyan;
+        }
+        &__tip-person{
+            font-size: 0.65em;
+            color: vars.$darkGrayishCyan;
+        }
+        &__tip-values{
+            font-size: 1.2em;
+            color: vars.$strongCyan;
+            text-align: right;
+        }
+        &__total-amount{
+            @extend .results__tip-amount;
+        }
+        // &.results__total-person{
+        //     @extend .results__tip-person;
+        }
+}

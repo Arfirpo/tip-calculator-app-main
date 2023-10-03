@@ -1,0 +1,12 @@
+@use 'vars';
+
+.header-container{
+    width: 375px;
+    text-align: center;
+    margin: 0 auto;
+    .header__logo{
+        width: 87px;
+        height: 54px;
+        margin: 30px 0;
+    }
+}
