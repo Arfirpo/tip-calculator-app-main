@@ -57,7 +57,7 @@
     }
     &__custom{
         @include mixins.input(unset);
-        text-align: center;
+        text-align: right;
         color: vars.$darkGrayishCyan;
     }
     &__button--selected{
