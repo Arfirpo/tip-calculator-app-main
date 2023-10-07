@@ -34,6 +34,10 @@ Desktop Layout
 
 ![Desktop Layout](./assets/images/desktop-layout.jpg)
 
+Desktop Layout Complete
+
+![Desktop Layout Complete](./assets/images/desktop-layout-complete.jpg)
+
 
 - See hover states for all interactive elements on the page
 
