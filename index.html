@@ -13,7 +13,7 @@
     </header>
     <section class="calculator-container">
       <div class="inputs-section">
-        <label for="bill" class="inputs-section__bill-label">Bill</label>
+        <label for="bill" class="inputs-section__bill-label">Bill<span id="b-alert"></span></label>
         <input id="bill" class="inputs-section__bill-input" type="number" placeholder="0">
         <fieldset class="buttons">
           <legend class="buttons__legend">Select Tip %</legend>
@@ -24,7 +24,7 @@
             <button class="buttons__button">50%</button>
             <input class="buttons__custom" type="number" placeholder="Custom">
         </fieldset>
-        <label for="people" class="inputs-section__people-label">Number of People<span class="alert"></span></label>
+        <label for="people" class="inputs-section__people-label">Number of People<span id="p-alert"></span></label>
         <input id="people" class="inputs-section__people-input" type="number" placeholder="5">
       </div>
       <div class="result-section">
@@ -33,12 +33,12 @@
             <p class="results__tip-amount">Tip Amount</p>
             <p class="results__tip-person">/ person</p>
           </div>
-          <p class="results__tip-value"></p>
+          <p class="results__tip-value">$0.00</p>
           <div>
             <p class="results__total-amount">Total</p>
             <p class="results__total-person">/ person</p>
           </div>
-          <p class="results__total-value"></p>
+          <p class="results__total-value">$0.00</p>
         </div>
         <button class="result-section__button">Reset</button>
       </div>

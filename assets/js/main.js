@@ -1,52 +1,88 @@
-let btns = document.querySelectorAll('.buttons__button');
-let tipAmountOtp = document.querySelector('.results__tip-value');
-let totalOtp = document.querySelector('.results__total-value');
-let billInput = document.querySelector('.inputs-section__bill-input');
-let peopleInput = document.querySelector('.inputs-section__people-input');
-let resetButton = document.querySelector('.result-section__button');
+const tipButtons = document.querySelectorAll('.buttons__button');
+const tipAmountOtp = document.querySelector('.results__tip-value');
+const totalOtp = document.querySelector('.results__total-value');
+const billInput = document.querySelector('.inputs-section__bill-input');
+const peopleInput = document.querySelector('.inputs-section__people-input');
+const resetButton = document.querySelector('.result-section__button');
+const customInput = document.querySelector('.buttons__custom');
+const billAlert = document.querySelector('#b-alert');
+const peopleAlert = document.querySelector('#p-alert');
 
+let tipPercentage = 5;
 
-
-function resetCalculator() {
-    billInput.value = ''; // Restablecer el valor del monto de la factura
-    peopleInput.value = ''; // Restablecer el valor de la cantidad de personas
-    tipAmountOtp.textContent = '$0.00'; // Restablecer la cantidad de propina en HTML
-    totalOtp.textContent = '$0.00'; // Restablecer el total en HTML
-}
-
+//Event Listeners
 resetButton.addEventListener('click', resetCalculator);
 
-btns.forEach(element => {
-    element.addEventListener('click', event => {
-        btns.forEach(element =>{
-            element.classList.remove('buttons__button--selected');
-        })
-        //cambiar estilo selected
-        element.classList.add('buttons__button--selected');
-
-
-
-        // Obtener el valor actual del monto de la factura y la cantidad de personas
-        let billNumber = parseFloat(billInput.value);
-        let peopleNumber = parseInt(peopleInput.value);
-
-        // Validar la entrada
-        // if (isNaN(billNumber) || isNaN(peopleNumber) || billNumber <= 0 || peopleNumber <= 0) {
-        //     alert('Por favor, ingresa valores válidos para el monto de la factura y la cantidad de personas.');
-        //     return;
-        // }
-
-        // Obtener el porcentaje de propina del botón clickeado
-        let tipPercentage = parseInt(event.target.innerText.slice(0, -1));
-
-        // Calcular la cantidad de propina
-        let tipAmount = ((tipPercentage / 100) * billNumber) / peopleNumber;
-
-        // Calcular el total de la factura por persona
-        let totalPerPerson = ((billNumber * tipPercentage / 100) + billNumber)/peopleNumber;
-
-        // Actualizar los elementos HTML con los resultados
-        tipAmountOtp.textContent = `$${tipAmount.toFixed(2)}`;
-        totalOtp.textContent = `$${totalPerPerson.toFixed(2)}`;
-    });
+tipButtons.forEach(button => {
+    button.addEventListener('click', handleTipButtonClick);
 });
+
+//actualizando el billInput
+billInput.addEventListener('input', () =>handleInput(billInput, billAlert));
+//Actualizando personInput
+peopleInput.addEventListener('input', () => handleInput(peopleInput, peopleAlert));
+//Actualizando el custom input
+customInput.addEventListener('input', () =>{
+    tipPercentage = parseInt(customInput.value);
+    if(!isNaN(tipPercentage)){
+        calculateTip();
+    }
+});
+customInput.addEventListener('click', ()=> removeActiveState());
+
+//Funciones
+function handleTipButtonClick(event) {
+    removeActiveState();
+    event.target.classList.add('buttons__button--selected');
+    tipPercentage = parseInt(event.target.innerText.slice(0, -1));
+    calculateTip();
+}
+
+function handleInput(inputElement, alertElement) {
+    const inputValue = parseFloat(inputElement.value);
+    calculateTip();
+    
+    if (inputValue === 0) {
+        handleError(true, inputElement, alertElement, `Can't be zero`);
+    }else if(isNaN(inputValue)){
+        handleError(true, inputElement, alertElement, `Can't be blank`);
+    } else {
+        handleError(false, inputElement, alertElement);
+    }
+}
+function calculateTip() {
+    const billValue = parseFloat(billInput.value);
+    const peopleValue = parseInt(peopleInput.value);
+
+    if (!isNaN(billValue) && !isNaN(peopleValue) && peopleValue !== 0) {
+        const tipAmount = (billValue * tipPercentage / 100) / peopleValue;
+        const totalAmount = ((billValue * tipPercentage / 100) + billValue) / peopleValue;
+        
+        tipAmountOtp.innerText = `$${tipAmount.toFixed(2)}`;
+        totalOtp.innerText = `$${totalAmount.toFixed(2)}`;
+    }
+}
+function handleError(hasError, inputElement, alertElement, errorMessage = '') {
+    if (hasError) {
+        inputElement.style.borderColor = 'rgb(164, 68, 68)';
+        alertElement.classList.add('error');
+        alertElement.innerText = errorMessage;
+    } else {
+        inputElement.style.borderColor = 'hsl(189, 41%, 97%)';
+        alertElement.classList.remove('error');
+        alertElement.innerText = '';
+    }
+}
+function resetCalculator() {
+    billInput.value = '0';
+    peopleInput.value = '5';
+    customInput.value = '';
+    billAlert.innerText = '';
+    peopleAlert.innerText = '';
+    calculateTip();
+}
+function removeActiveState() {
+    tipButtons.forEach(button => {
+        button.classList.remove('buttons__button--selected');
+    });
+}

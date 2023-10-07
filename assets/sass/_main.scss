@@ -21,6 +21,9 @@
 .inputs-section__bill-label,
 .inputs-section__people-label{
     @include mixins.label;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .inputs-section__bill-input{
@@ -69,11 +72,15 @@
     }
 }
 
+#p-alert,
+#b-alert{
+    font-size: 0.7em;
+}
 
-// .error{
-//     border: 1px solid;
-//     border-color: rgb(164, 68, 68);
-// }
+.error{
+    // border: 1px solid #000;
+    color: rgb(164, 68, 68);
+}
 
 .result-section{
     background-color: vars.$veryDarkCyan;
