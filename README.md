@@ -13,6 +13,7 @@ This is a solution to the [Tip calculator app challenge on Frontend Mentor](http
     - [Links](#links)
   - [My process](#my-process)
     - [Built with](#built-with)
+    - [Author](#author)
 ## Overview
 
 ### The challenge
@@ -57,6 +58,8 @@ Desktop Layout Complete
 - Mobile-first workflow
 - [Sass](https://sass-lang.com/) - Css preprocessor
 - Javascript
+
+### Author
 
 - Linkedin - [Agustín Rodrigo Firpo](https://www.linkedin.com/in/agustin-rodrigo-firpo-0aa86697/)
 - Frontend Mentor - [@Arfirpo](https://www.frontendmentor.io/profile/Arfirpo)
