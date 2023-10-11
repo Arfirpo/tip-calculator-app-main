@@ -43,8 +43,8 @@ Desktop Layout Complete
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution: [Github Repository](https://github.com/Arfirpo/tip-calculator-app-main)
+- Page: [Github Page](https://arfirpo.github.io/tip-calculator-app-main/)
 
 ## My process
 
